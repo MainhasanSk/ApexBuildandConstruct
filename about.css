@@ -1,0 +1,570 @@
+/* ==================== ABOUT US PAGE STYLES ==================== */
+
+/* About Hero Section */
+.about-hero {
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1600') center/cover;
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-top: 80px;
+}
+
+.about-hero-overlay {
+    width: 100%;
+    padding: 80px 20px;
+}
+
+.about-hero-content {
+    text-align: center;
+    color: var(--white);
+}
+
+.about-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(245, 158, 32, 0.9);
+    color: var(--secondary-color);
+    padding: 10px 25px;
+    border-radius: 30px;
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.about-hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.about-hero-content h1 span {
+    color: var(--primary-color);
+}
+
+.about-hero-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 50px;
+    color: #e0e0e0;
+}
+
+.about-hero-stats {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+}
+
+.hero-stat-item {
+    text-align: center;
+}
+
+.hero-stat-item i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.hero-stat-item h3 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    color: var(--white);
+}
+
+.hero-stat-item p {
+    color: #cccccc;
+    font-size: 0.95rem;
+}
+
+/* Company Story Section */
+.company-story {
+    padding: 100px 0;
+    background: var(--white);
+}
+
+.story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.story-image {
+    position: relative;
+}
+
+.story-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+}
+
+.story-badge {
+    position: absolute;
+    bottom: 30px;
+    left: 30px;
+    background: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 20px 30px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    box-shadow: var(--shadow-lg);
+}
+
+.story-badge i {
+    font-size: 1.5rem;
+}
+
+.story-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+    line-height: 1.3;
+}
+
+.highlight-text {
+    font-size: 1.15rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    margin-bottom: 20px;
+    line-height: 1.7;
+}
+
+.story-content p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.story-features {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.story-feature {
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.story-feature i {
+    color: var(--primary-color);
+    font-size: 1.5rem;
+    flex-shrink: 0;
+    margin-top: 3px;
+}
+
+.story-feature h4 {
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.story-feature p {
+    color: var(--text-light);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* Our Approach Section */
+.our-approach {
+    padding: 100px 0;
+    background: var(--light-bg);
+}
+
+.approach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+.approach-card {
+    background: var(--white);
+    padding: 40px 30px;
+    border-radius: 15px;
+    text-align: center;
+    position: relative;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.approach-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-lg);
+}
+
+.approach-number {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 3rem;
+    font-weight: 800;
+    color: rgba(245, 158, 32, 0.1);
+}
+
+.approach-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 25px;
+    background: rgba(245, 158, 32, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--transition);
+}
+
+.approach-card:hover .approach-icon {
+    background: var(--primary-color);
+}
+
+.approach-icon i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    transition: var(--transition);
+}
+
+.approach-card:hover .approach-icon i {
+    color: var(--secondary-color);
+}
+
+.approach-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+    color: var(--secondary-color);
+}
+
+.approach-card p {
+    color: var(--text-light);
+    line-height: 1.7;
+}
+
+/* Why Choose Us Section */
+.why-choose-us {
+    padding: 100px 0;
+    background: var(--white);
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.why-content h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+.why-content > p {
+    color: var(--text-light);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.why-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.why-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.why-icon {
+    width: 60px;
+    height: 60px;
+    background: rgba(245, 158, 32, 0.1);
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.why-icon i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.why-text h4 {
+    color: var(--secondary-color);
+    margin-bottom: 5px;
+    font-size: 1.1rem;
+}
+
+.why-text p {
+    color: var(--text-light);
+    line-height: 1.6;
+    margin: 0;
+}
+
+.why-image {
+    position: relative;
+}
+
+.why-image img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: var(--shadow-lg);
+}
+
+.quality-badges {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    display: flex;
+    gap: 15px;
+}
+
+.quality-badge {
+    background: var(--white);
+    padding: 15px 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    box-shadow: var(--shadow-lg);
+}
+
+.quality-badge i {
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.quality-badge span {
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-size: 0.9rem;
+}
+
+/* Services Overview */
+.services-overview {
+    padding: 80px 0;
+    background: var(--light-bg);
+}
+
+.services-grid-compact {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.service-item-compact {
+    background: var(--white);
+    padding: 30px 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: var(--transition);
+    box-shadow: var(--shadow);
+}
+
+.service-item-compact:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.service-item-compact i {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.service-item-compact h4 {
+    color: var(--secondary-color);
+    font-size: 1rem;
+}
+
+/* Our Commitment Section */
+.our-commitment {
+    padding: 100px 0;
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+    text-align: center;
+    color: var(--secondary-color);
+}
+
+.commitment-content {
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.commitment-content i {
+    font-size: 4rem;
+    margin-bottom: 25px;
+}
+
+.commitment-content h2 {
+    font-size: 2.8rem;
+    margin-bottom: 25px;
+    color: var(--secondary-color);
+}
+
+.commitment-content p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: rgba(0, 0, 0, 0.85);
+}
+
+.commitment-highlight {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.commitment-cta {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.commitment-cta .btn-secondary {
+    background: var(--white);
+    color: var(--primary-color);
+}
+
+.commitment-cta .btn-secondary:hover {
+    background: var(--secondary-color);
+    color: var(--white);
+}
+
+/* Coverage Area */
+.coverage-area {
+    padding: 80px 0;
+    background: var(--white);
+}
+
+.coverage-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.coverage-item {
+    background: var(--light-bg);
+    padding: 30px 20px;
+    border-radius: 10px;
+    text-align: center;
+    transition: var(--transition);
+}
+
+.coverage-item:hover {
+    background: var(--primary-color);
+    transform: scale(1.05);
+}
+
+.coverage-item i {
+    font-size: 2rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.coverage-item:hover i {
+    color: var(--secondary-color);
+}
+
+.coverage-item h4 {
+    color: var(--secondary-color);
+    font-size: 1rem;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .about-hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .story-grid,
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .why-image {
+        order: -1;
+    }
+
+    .approach-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-hero-stats {
+        gap: 40px;
+    }
+}
+
+@media (max-width: 600px) {
+    .about-hero {
+        min-height: 60vh;
+    }
+
+    .about-hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .about-hero-subtitle {
+        font-size: 1.1rem;
+    }
+
+    .story-content h2,
+    .why-content h2 {
+        font-size: 2rem;
+    }
+
+    .commitment-content h2 {
+        font-size: 2.2rem;
+    }
+
+    .commitment-cta {
+        flex-direction: column;
+    }
+
+    .commitment-cta .btn {
+        width: 100%;
+    }
+
+    .quality-badges {
+        flex-direction: column;
+        bottom: 15px;
+        right: 15px;
+    }
+}
+
+/*Counter */
+/* Counter Animation Styling */
+.about-counter {
+    display: inline-block;
+    font-weight: 800;
+    transition: all 0.3s ease;
+}
+
+.hero-stat-item h3 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    color: var(--white);
+    font-weight: 800;
+}
+
+/* Pulse effect while counting */
+@keyframes counterPulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+}
+
+.about-counter.counting {
+    animation: counterPulse 0.5s ease-in-out infinite;
+}
+

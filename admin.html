@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - APEX Building Construction</title>
+    <link rel="stylesheet" href="admin-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="logo">
+                <img src="APEX_TM.jpg" alt="APEX Logo">
+                <h2>Admin Panel</h2>
+            </div>
+            <nav class="admin-nav">
+                <a href="#" class="nav-item active" data-section="dashboard">
+                    <i class="fas fa-home"></i> Dashboard
+                </a>
+                <a href="#" class="nav-item" data-section="ongoing-projects">
+                    <i class="fas fa-tasks"></i> Ongoing Projects
+                </a>
+                <a href="#" class="nav-item" data-section="completed-projects">
+                    <i class="fas fa-check-circle"></i> Completed Projects
+                </a>
+                <a href="#" class="nav-item" data-section="blogs">
+                    <i class="fas fa-blog"></i> Blog Posts
+                </a>
+                <a href="#" class="nav-item" data-section="queries">
+                    <i class="fas fa-phone-alt"></i> Customer Queries
+                </a>
+                <a href="#" class="nav-item" id="logoutBtn">
+                    <i class="fas fa-sign-out-alt"></i> Logout
+                </a>
+            </nav>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <header class="admin-header">
+                <h1 id="sectionTitle">Dashboard</h1>
+                <div class="user-info">
+                    <i class="fas fa-user-circle"></i>
+                    <span id="adminEmail">Admin</span>
+                </div>
+            </header>
+
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section active">
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <i class="fas fa-tasks"></i>
+                        <h3 id="ongoingCount">0</h3>
+                        <p>Ongoing Projects</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-check-circle"></i>
+                        <h3 id="completedCount">0</h3>
+                        <p>Completed Projects</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-blog"></i>
+                        <h3 id="blogsCount">0</h3>
+                        <p>Blog Posts</p>
+                    </div>
+                    <div class="stat-card">
+                        <i class="fas fa-phone-alt"></i>
+                        <h3 id="queriesCount">0</h3>
+                        <p>Customer Queries</p>
+                    </div>
+                </div>
+
+                <div class="welcome-message">
+                    <h3>Welcome to APEX Admin Dashboard</h3>
+                    <p>Manage your construction projects, blog posts, and customer queries from here.</p>
+                </div>
+            </section>
+
+            <!-- Ongoing Projects Section -->
+            <section id="ongoing-projects" class="content-section">
+                <button class="btn-add" onclick="showAddProjectModal('ongoing')">
+                    <i class="fas fa-plus"></i> Add Ongoing Project
+                </button>
+                <div class="table-container">
+                    <table id="ongoingProjectsTable">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Location</th>
+                                <th>Area</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Completed Projects Section -->
+            <section id="completed-projects" class="content-section">
+                <button class="btn-add" onclick="showAddProjectModal('completed')">
+                    <i class="fas fa-plus"></i> Add Completed Project
+                </button>
+                <div class="table-container">
+                    <table id="completedProjectsTable">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Location</th>
+                                <th>Area</th>
+                                <th>Completed Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Blog Posts Section -->
+            <section id="blogs" class="content-section">
+                <button class="btn-add" onclick="showAddBlogModal()">
+                    <i class="fas fa-plus"></i> Add Blog Post
+                </button>
+                <div class="table-container">
+                    <table id="blogsTable">
+                        <thead>
+                            <tr>
+                                <th>Image</th>
+                                <th>Title</th>
+                                <th>Author</th>
+                                <th>Published</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Customer Queries Section -->
+            <section id="queries" class="content-section">
+                <div class="table-container">
+                    <table id="queriesTable">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Contact No.</th>
+                                <th>Location</th>
+                                <th>Service Type</th>
+                                <th>Description</th>
+                                <th>Date</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Add Project Modal -->
+    <div id="projectModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('projectModal')">&times;</span>
+            <h2 id="projectModalTitle">Add Project</h2>
+            <form id="projectForm">
+                <input type="hidden" id="projectType">
+                <input type="hidden" id="projectId">
+                
+                <div class="form-group">
+                    <label>Project Title *</label>
+                    <input type="text" id="projectTitle" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Description *</label>
+                    <textarea id="projectDescription" rows="4" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Location *</label>
+                    <input type="text" id="projectLocation" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Area (e.g., 2500 sq ft)</label>
+                    <input type="text" id="projectArea">
+                </div>
+                
+                <div class="form-group">
+                    <label>Upload Image (ImgBB)</label>
+                    <input type="file" id="projectImageFile" accept="image/*">
+                    <small>Or paste direct URL below</small>
+                </div>
+                
+                <div class="form-group">
+                    <label>Image URL</label>
+                    <input type="url" id="projectImage" placeholder="https://example.com/image.jpg">
+                </div>
+                
+                <div id="uploadProgress" style="display:none;">
+                    <p>Uploading image... <span id="uploadStatus"></span></p>
+                </div>
+                
+                <button type="submit" class="btn-submit">Save Project</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Add Blog Modal -->
+    <div id="blogModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('blogModal')">&times;</span>
+            <h2 id="blogModalTitle">Add Blog Post</h2>
+            <form id="blogForm">
+                <input type="hidden" id="blogId">
+                
+                <div class="form-group">
+                    <label>Title *</label>
+                    <input type="text" id="blogTitle" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Author *</label>
+                    <input type="text" id="blogAuthor" required value="APEX Team">
+                </div>
+                
+                <div class="form-group">
+                    <label>Excerpt (Short Description)</label>
+                    <textarea id="blogExcerpt" rows="2" placeholder="Brief summary..."></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Content *</label>
+                    <textarea id="blogContent" rows="8" required></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label>Upload Image (ImgBB)</label>
+                    <input type="file" id="blogImageFile" accept="image/*">
+                    <small>Or paste direct URL below</small>
+                </div>
+                
+                <div class="form-group">
+                    <label>Image URL</label>
+                    <input type="url" id="blogImage" placeholder="https://example.com/image.jpg">
+                </div>
+                
+                <div id="blogUploadProgress" style="display:none;">
+                    <p>Uploading image... <span id="blogUploadStatus"></span></p>
+                </div>
+                
+                <button type="submit" class="btn-submit">Publish Blog</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Login Modal -->
+    <div id="loginModal" class="modal active">
+        <div class="modal-content login-modal">
+            <div class="login-header">
+                <img src="APEX_TM.jpg" alt="APEX Logo">
+                <h2>Admin Login</h2>
+                <p>Enter your credentials to access the dashboard</p>
+            </div>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" id="loginEmail" required placeholder="admin@apexbuilding.com">
+                </div>
+                <div class="form-group">
+                    <label>Password</label>
+                    <input type="password" id="loginPassword" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="btn-submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <script type="module" src="admin.js"></script>
+</body>
+</html>

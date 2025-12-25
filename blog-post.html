@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Post - APEX Building Construction</title>
+    <meta name="description" content="Detailed construction insights from APEX Building Construction.">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .post-hero {
+            padding-top: 140px;
+            padding-bottom: 50px;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(245, 158, 32, 0.3)),
+                        url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920') center/cover;
+            color: #fff;
+        }
+        .post-container {
+            max-width: 900px;
+            margin: 0 auto 80px;
+            padding: 0 20px;
+        }
+        .post-hero .post-container {
+            margin-bottom: 0;
+        }
+        .post-title {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+            color: #fff;
+        }
+        .post-meta {
+            display: flex;
+            gap: 25px;
+            color: rgba(255,255,255,0.9);
+            font-size: 0.95rem;
+            flex-wrap: wrap;
+        }
+        .post-meta i {
+            color: var(--primary-color);
+            margin-right: 8px;
+        }
+        .post-content-wrapper {
+            background: #fff;
+            margin-top: -50px;
+            position: relative;
+            z-index: 10;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        .post-image {
+            width: 100%;
+            height: 450px;
+            overflow: hidden;
+        }
+        .post-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .post-content {
+            padding: 50px;
+        }
+        .post-content p {
+            margin-bottom: 20px;
+            line-height: 1.9;
+            font-size: 1.05rem;
+            color: #333;
+        }
+        .post-content h2 {
+            margin-top: 30px;
+            margin-bottom: 15px;
+            color: #000;
+            font-size: 1.8rem;
+        }
+        .post-content h3 {
+            margin-top: 25px;
+            margin-bottom: 12px;
+            color: #333;
+            font-size: 1.4rem;
+        }
+        .post-content ul, .post-content ol {
+            margin-bottom: 20px;
+            padding-left: 30px;
+            line-height: 1.8;
+        }
+        .post-content li {
+            margin-bottom: 10px;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 40px;
+            padding: 12px 24px;
+            background: var(--light-bg);
+            color: var(--text-color);
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+        .back-button:hover {
+            background: var(--primary-color);
+            color: #000;
+            transform: translateX(-5px);
+        }
+        .loading-post {
+            text-align: center;
+            padding: 100px 20px;
+            color: #666;
+        }
+        @media (max-width: 768px) {
+            .post-title {
+                font-size: 2rem;
+            }
+            .post-image {
+                height: 300px;
+            }
+            .post-content {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav class="navbar">
+            <div class="container">
+                <div class="logo">
+                    <a href="index.html">
+                        <img src="APEX_TM.jpg" alt="APEX Logo">
+                    </a>
+                </div>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html#home">Home</a></li>
+                    <li><a href="index.html#services">Services</a></li>
+                    <li><a href="index.html#ongoing-projects">Projects</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a href="index.html#contact">Contact</a></li>
+                </ul>
+                <div class="hamburger" id="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Post Hero -->
+    <section class="post-hero">
+        <div class="post-container">
+            <h1 class="post-title" id="postTitle">Loading...</h1>
+            <div class="post-meta" id="postMeta"></div>
+        </div>
+    </section>
+
+    <!-- Post Content -->
+    <section>
+        <div class="post-container">
+            <div class="post-content-wrapper">
+                <div class="post-image" id="postImageWrapper" style="display:none;">
+                    <img id="postImage" src="" alt="">
+                </div>
+                <div class="post-content" id="postContent">
+                    <div class="loading-post">
+                        <i class="fas fa-spinner fa-spin" style="font-size: 2rem; color: var(--primary-color);"></i>
+                        <p>Loading article...</p>
+                    </div>
+                </div>
+            </div>
+            <a href="blog.html" class="back-button">
+                <i class="fas fa-arrow-left"></i>
+                <span>Back to Blog</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="APEX_TM.jpg" alt="APEX Logo" class="footer-logo">
+                    <p>Building dreams, creating futures. Your trusted construction partner.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html#home">Home</a></li>
+                        <li><a href="index.html#services">Services</a></li>
+                        <li><a href="index.html#ongoing-projects">Projects</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> Golaghat, Assam, India</li>
+                        <li><i class="fas fa-phone"></i> +91 XXXXX XXXXX</li>
+                        <li><i class="fas fa-envelope"></i> info@apexbuilding.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 APEX Building Construction. All rights reserved.</p>
+                <p>Designed & Developed with <i class="fas fa-heart"></i> by <a href="https://junakdigital.com" target="_blank">Junak Digital</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getFirestore, doc, getDoc } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+        // Firebase config
+        const firebaseConfig = {
+          apiKey: "AIzaSyAsaM1XDG9gcYg79S8CSl83OCuqqloIzB0",
+          authDomain: "apex-building-67412.firebaseapp.com",
+          projectId: "apex-building-67412",
+          storageBucket: "apex-building-67412.firebasestorage.app",
+          messagingSenderId: "387820864534",
+          appId: "1:387820864534:web:f82c133862f69c1aee6137",
+          measurementId: "G-81B31CF4XS"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Mobile nav
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Get ID from URL
+        const params = new URLSearchParams(window.location.search);
+        const postId = params.get('id');
+
+        async function loadPost() {
+            if (!postId) {
+                document.getElementById('postTitle').textContent = 'Post not found';
+                document.getElementById('postContent').innerHTML = 
+                    '<p>The blog post you are looking for does not exist.</p>';
+                return;
+            }
+            
+            try {
+                const ref = doc(db, 'blogs', postId);
+                const snap = await getDoc(ref);
+                
+                if (!snap.exists()) {
+                    document.getElementById('postTitle').textContent = 'Post not found';
+                    document.getElementById('postContent').innerHTML = 
+                        '<p>The blog post you are looking for does not exist.</p>';
+                    return;
+                }
+                
+                const post = snap.data();
+                
+                // Update page title
+                document.title = post.title + ' | APEX Building Construction';
+                
+                // Set post title
+                document.getElementById('postTitle').textContent = post.title;
+                
+                // Set meta info
+                const date = post.publishedAt && post.publishedAt.seconds
+                    ? new Date(post.publishedAt.seconds * 1000).toLocaleDateString('en-US', {
+                        year: 'numeric',
+                        month: 'long',
+                        day: 'numeric'
+                    })
+                    : 'Recent';
+                
+                document.getElementById('postMeta').innerHTML = `
+                    <span><i class="far fa-calendar"></i> ${date}</span>
+                    <span><i class="far fa-user"></i> ${post.author || 'APEX Team'}</span>
+                `;
+
+                // Set image if available
+                if (post.imageUrl) {
+                    const img = document.getElementById('postImage');
+                    img.src = post.imageUrl;
+                    img.alt = post.title;
+                    img.onerror = function() {
+                        this.src = 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=900';
+                    };
+                    document.getElementById('postImageWrapper').style.display = 'block';
+                }
+
+                // Set content
+                const contentEl = document.getElementById('postContent');
+                const content = (post.content || '').trim();
+                
+                // Split content by double line breaks to create paragraphs
+                const paragraphs = content.split('\n\n');
+                contentEl.innerHTML = paragraphs
+                    .filter(p => p.trim())
+                    .map(p => `<p>${p.trim().replace(/\n/g, '<br>')}</p>`)
+                    .join('');
+
+            } catch (error) {
+                console.error('Error loading post:', error);
+                document.getElementById('postTitle').textContent = 'Error loading post';
+                document.getElementById('postContent').innerHTML = 
+                    '<p>Sorry, there was an error loading this blog post. Please try again later.</p>';
+            }
+        }
+
+        loadPost();
+    </script>
+</body>
+</html>

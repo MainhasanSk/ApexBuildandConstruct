@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Construction tips, home building ideas, and project updates from APEX Building Construction.">
+    <meta name="keywords" content="construction tips, building advice, home construction, APEX blog">
+    <title>APEX Blog | Construction Tips & Project Ideas</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .blog-page-header {
+            padding-top: 140px;
+            padding-bottom: 60px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(245, 158, 32, 0.3)),
+                        url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1920') center/cover;
+            color: #fff;
+        }
+        .blog-page-header h1 {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+        .blog-page-header p {
+            font-size: 1.2rem;
+            color: rgba(255,255,255,0.9);
+        }
+        .blog-list-container {
+            max-width: 1200px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+        .blog-page .blog-grid {
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+     <header>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="APEX_TM.png" alt="APEX Building Construction Logo">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="index.html#ongoing-projects">Ongoing Projects</a></li>
+                <li><a href="index.html#completed-projects">Completed Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <!-- Blog Header -->
+    <section class="blog-page-header" id="top">
+        <div class="container">
+            <span class="hero-badge">Knowledge Hub</span>
+            <h1>APEX Construction Blog</h1>
+            <p>Expert guides, tips, and updates to help you build smarter</p>
+        </div>
+    </section>
+
+    <!-- Blog Grid -->
+    <section class="blog-page">
+        <div class="blog-list-container">
+            <div class="blog-grid" id="blogGrid">
+                <div class="loading">Loading blog posts...</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="APEX_TM.png" alt="APEX Logo" class="footer-logo">
+                    <p>Building dreams, creating futures. Your trusted construction partner for residential and commercial projects.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61585677809570" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="#ongoing-projects">Ongoing Projects</a></li>
+                        <li><a href="#completed-projects">Completed Projects</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#services">Residential Construction</a></li>
+                        <li><a href="#services">Commercial Buildings</a></li>
+                        <li><a href="#services">Interior Design</a></li>
+                        <li><a href="#services">Renovation & Remodeling</a></li>
+                        <li><a href="#services">Project Management</a></li>
+                        <li><a href="#services">Loan Assistance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> Guwahati, Assam, India</li>
+                        <li><i class="fas fa-phone"></i> +91 9957852523</li>
+                        <li><i class="fas fa-envelope"></i> info.apexbuildandconstruct@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 APEX Building Construction. All rights reserved.</p>
+                <p>Designed & Developed with <i class="fas fa-heart"></i> by <a href="https://junakdigital.com" target="_blank">Junak Digital</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script type="module">
+        import { initializeApp } from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js';
+        import { getFirestore, collection, getDocs, query, orderBy } 
+            from 'https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js';
+
+        // Firebase config
+        const firebaseConfig = {
+          apiKey: "AIzaSyAsaM1XDG9gcYg79S8CSl83OCuqqloIzB0",
+          authDomain: "apex-building-67412.firebaseapp.com",
+          projectId: "apex-building-67412",
+          storageBucket: "apex-building-67412.firebasestorage.app",
+          messagingSenderId: "387820864534",
+          appId: "1:387820864534:web:f82c133862f69c1aee6137",
+          measurementId: "G-81B31CF4XS"
+        };
+
+        const app = initializeApp(firebaseConfig);
+        const db = getFirestore(app);
+
+        // Mobile menu
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+        if (hamburger) {
+            hamburger.addEventListener('click', () => {
+                navLinks.classList.toggle('active');
+            });
+        }
+
+        // Close mobile menu on link click
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Load all blogs
+        async function loadAllBlogs() {
+            try {
+                const blogsQuery = query(collection(db, 'blogs'), orderBy('publishedAt', 'desc'));
+                const snapshot = await getDocs(blogsQuery);
+                const grid = document.getElementById('blogGrid');
+                
+                if (snapshot.empty) {
+                    grid.innerHTML = '<div class="loading">No blog posts available yet. Check back soon for construction tips and updates!</div>';
+                    return;
+                }
+                
+                grid.innerHTML = '';
+                snapshot.forEach(docSnap => {
+                    const blog = docSnap.data();
+                    const id = docSnap.id;
+                    const date = blog.publishedAt && blog.publishedAt.seconds
+                        ? new Date(blog.publishedAt.seconds * 1000).toLocaleDateString('en-US', {
+                            year: 'numeric',
+                            month: 'short',
+                            day: 'numeric'
+                        })
+                        : 'Recent';
+                    
+                    grid.innerHTML += `
+                        <div class="blog-card" onclick="window.location.href='blog-post.html?id=${id}'">
+                            <img src="${blog.imageUrl || 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=500'}" 
+                                 alt="${blog.title}"
+                                 onerror="this.src='https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=500'">
+                            <div class="blog-content">
+                                <div class="blog-meta">
+                                    <span><i class="far fa-calendar"></i> ${date}</span>
+                                    <span><i class="far fa-user"></i> ${blog.author || 'APEX Team'}</span>
+                                </div>
+                                <h3>${blog.title}</h3>
+                                <p>${blog.excerpt || (blog.content || '').substring(0, 130) + '...'}</p>
+                            </div>
+                        </div>
+                    `;
+                });
+            } catch (error) {
+                console.error('Error loading blogs:', error);
+                document.getElementById('blogGrid').innerHTML = 
+                    '<div class="loading">Unable to load blog posts. Please try again later.</div>';
+            }
+        }
+
+        loadAllBlogs();
+    </script>
+</body>
+</html>

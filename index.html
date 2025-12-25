@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="APEX Building Construction - Your trusted partner for end-to-end construction services. We build your dream house with A to Z support and loan assistance.">
+    <meta name="keywords" content="construction company, building construction, dream house, construction services, loan assistance, residential construction, Golaghat, Assam">
+    <meta name="author" content="APEX Building Construction">
+    <title>APEX Building Construction | Build Your Dream House - A to Z Construction Services</title>
+    <link rel="stylesheet" href="styles.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header -->
+     <header>
+    <nav class="navbar">
+        <div class="container">
+            <a href="index.html" class="logo">
+                <img src="APEX_TM.png" alt="APEX Building Construction Logo">
+            </a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="index.html#ongoing-projects">Ongoing Projects</a></li>
+                <li><a href="index.html#completed-projects">Completed Projects</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="index.html#blog">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+</header>
+
+    <!-- Hero Section -->
+     <section id="home" class="hero">
+    <div class="hero-content">
+        <div class="hero-badge">
+            <i class="fas fa-award"></i> Trusted Construction Partner Since 2010
+        </div>
+        
+        <h1>BUILD YOUR DREAM HOUSE WITH <span>APEX CONSTRUCTION</span></h1>
+        
+        <div class="tagline">
+            <i class="fas fa-check-circle"></i>
+            <p>Complete A to Z Construction Services with Loan Assistance</p>
+        </div>
+
+        <p class="hero-subtitle">
+            Perfect for busy professionals who want quality construction without the stress. 
+            We handle everything from planning to handover.
+        </p>
+        
+        <div class="hero-input-group">
+            <input type="tel" id="heroPhone" placeholder="Enter Your Contact Number" pattern="[0-9]{10}" maxlength="10" required>
+            <button class="cta-btn" onclick="openEstimateModal()">
+                GET FREE ESTIMATE
+                <i class="fas fa-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Hero Image/Video Side -->
+    <div class="hero-image">
+          
+        <div class="hero-visual-wrapper">
+            <div class="video-controls">
+            <button class="video-play-pause" id="playPauseBtn">
+                <i class="fas fa-pause"></i>
+            </button>
+        </div>
+            <video 
+                id="heroVideo"
+                class="hero-video" 
+                autoplay 
+                muted 
+                loop 
+                playsinline
+                poster="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800">
+                <source src="video.mp4" type="video/mp4">
+            </video>
+           
+        </div>
+      
+        
+        <!-- Certifications Below Video (Right Side) -->
+        <div class="hero-certifications-below">
+            <p class="cert-title">Our Expertise</p>
+            <div class="certification-logos">
+                <div class="certification-logo">
+                    <i class="fas fa-home"></i>
+                    <span>Residential</span>
+                </div>
+                <div class="certification-logo">
+                    <i class="fas fa-building"></i>
+                    <span>Commercial</span>
+                </div>
+                <div class="certification-logo">
+                    <i class="fas fa-tools"></i>
+                    <span>Renovation</span>
+                </div>
+                <div class="certification-logo">
+                    <i class="fas fa-hand-holding-usd"></i>
+                    <span>Loan Support</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Hero Stats - Will appear after video on mobile -->
+    <div class="hero-bottom-section">
+    <div class="hero-quick-stats">
+        <div class="quick-stat">
+            <h3><span class="counter" data-target="498">0</span>+</h3>
+            <p>Projects Completed</p>
+        </div>
+        <div class="quick-stat">
+            <h3><span class="counter" data-target="16">0</span>+</h3>
+            <p>Years Experience</p>
+        </div>
+        <div class="quick-stat">
+            <h3><span class="counter" data-target="100">0</span>%</h3>
+            <p>Client Satisfaction</p>
+        </div>
+    </div>
+</div>
+
+</section>
+
+
+    <!-- Why Choose Us -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Why Choose APEX</span>
+                <h2>Your One-Stop Construction Solution</h2>
+                <p class="section-subtitle">Perfect for busy professionals who want hassle-free construction</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>A to Z Services</h3>
+                    <p>Complete construction solutions from planning, design, execution to handover</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <h3>Loan Assistance</h3>
+                    <p>We help you secure construction loans with ease and guide you through the process</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3>Time-Saving</h3>
+                    <p>Ideal for those with no time to manage construction. We handle everything</p>
+                </div>
+                <div class="feature-card">
+                    <div class="icon-wrapper">
+                        <i class="fas fa-certificate"></i>
+                    </div>
+                    <h3>Licensed & Certified</h3>
+                    <p>Fully licensed contractors with quality assurance and warranty</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <!-- Services Section -->
+<section id="services" class="services">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Our Services</span>
+            <h2>Comprehensive Construction Solutions</h2>
+            <p class="section-subtitle">From design to completion, we provide end-to-end construction services</p>
+        </div>
+        <div class="services-grid">
+            <!-- Service 1: Residential Construction -->
+            <div class="service-card" onclick="navigateToService('residential')">
+                <div class="service-image">
+                    <img src="image/house.png" alt="Residential Construction">
+                    <div class="service-overlay">
+                        <a href="javascript:void(0)" onclick="event.stopPropagation(); openQuoteModal('Complete House Construction')" class="service-btn">Get Quote</a>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <h3>Residential Construction</h3>
+                    <p>Custom homes built to your specifications with premium materials and craftsmanship</p>
+                </div>
+            </div>
+
+            <!-- Service 2: Commercial Buildings -->
+            <div class="service-card" onclick="navigateToService('commercial')">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=500" alt="Commercial Construction">
+                    <div class="service-overlay">
+                        <a href="javascript:void(0)" onclick="event.stopPropagation(); openQuoteModal('Commercial Construction')" class="service-btn">Get Quote</a>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <h3>Commercial Buildings</h3>
+                    <p>Office spaces, retail stores, and commercial complexes with modern designs</p>
+                </div>
+            </div>
+
+            <!-- Service 3: Interior Design -->
+            <div class="service-card" onclick="navigateToService('interior')">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?w=500" alt="Interior Design">
+                    <div class="service-overlay">
+                        <a href="javascript:void(0)" onclick="event.stopPropagation(); openQuoteModal('Interior Design & Finishing')" class="service-btn">Get Quote</a>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <h3>Interior Design</h3>
+                    <p>Beautiful, functional interiors that reflect your style and personality</p>
+                </div>
+            </div>
+
+            <!-- Service 4: Renovation -->
+            <div class="service-card" onclick="navigateToService('renovation')">
+                <div class="service-image">
+                    <img src="image/renovation.png" alt="Renovation">
+                    <div class="service-overlay">
+                        <a href="javascript:void(0)" onclick="event.stopPropagation(); openQuoteModal('Renovation & Remodeling')" class="service-btn">Get Quote</a>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <h3>Renovation & Remodeling</h3>
+                    <p>Transform existing spaces into modern, functional living areas</p>
+                </div>
+            </div>
+
+            <!-- Service 5: Project Management -->
+            <div class="service-card" onclick="navigateToService('design')">
+                <div class="service-image">
+                    <img src="image/planning.png" alt="Project Management">
+                    <div class="service-overlay">
+                        <a href="javascript:void(0)" onclick="event.stopPropagation(); openQuoteModal('Architectural Design & AutoCAD Planning')" class="service-btn">Get Quote</a>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <h3>Architectural Design</h3>
+                    <p>Complete planning with AutoCAD drawings, 3D designs, and project management</p>
+                </div>
+            </div>
+
+            <!-- Service 6: Loan Assistance -->
+            <div class="service-card" onclick="navigateToService('loan')">
+                <div class="service-image">
+                    <img src="https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500" alt="Loan Assistance">
+                    <div class="service-overlay">
+                        <a href="javascript:void(0)" onclick="event.stopPropagation(); openQuoteModal('Home Loan Assistance')" class="service-btn">Get Quote</a>
+                    </div>
+                </div>
+                <div class="service-content">
+                    <h3>Loan Assistance</h3>
+                    <p>Financial guidance and loan processing support for your construction needs</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- View All Services Button -->
+        <div class="services-cta">
+            <a href="services.html" class="btn btn-primary btn-large">
+                <i class="fas fa-th-large"></i> View All Services
+            </a>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Ongoing Projects -->
+    <!-- <section id="ongoing-projects" class="projects ongoing">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Live Updates</span>
+                <h2>Ongoing Projects</h2>
+                <p class="section-subtitle">Watch our current builds come to life</p>
+            </div>
+            <div class="projects-grid" id="ongoingProjectsGrid"> -->
+                <!-- Projects loaded from Firebase -->
+                <!-- <div class="loading">Loading projects...</div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Completed Projects -->
+    <!-- <section id="completed-projects" class="projects completed">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Portfolio</span>
+                <h2>Completed Projects</h2>
+                <p class="section-subtitle">Our portfolio of successful builds</p>
+            </div>
+            <div class="projects-grid" id="completedProjectsGrid"> -->
+                <!-- Projects loaded from Firebase -->
+                <!-- <div class="loading">Loading projects...</div>
+            </div>
+        </div>
+    </section> -->
+
+    
+<!-- NEW: Static Ongoing Projects Showcase -->
+<!-- NEW: Static Ongoing Projects Showcase with 2 Projects -->
+<section id="ongoing-projects" class="ongoing-showcase">
+    <div class="container">
+        <div class="section-header">
+            <span class="section-tag">Work in Progress</span>
+            <h2>Current Projects Under Construction</h2>
+            <p class="section-subtitle">Watch our live construction sites transforming into dream homes</p>
+        </div>
+
+        <!-- Project 1 -->
+        <div class="project-showcase-card">
+            <div class="project-video-wrapper">
+                <div class="project-video-container">
+                    <video 
+                        class="project-video" 
+                        autoplay 
+                        muted 
+                        loop 
+                        playsinline
+                        poster="image/project1-poster.jpg">
+                        <source src="ongoing.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay">
+                        <div class="project-status-badge">
+                            <i class="fas fa-hard-hat"></i>
+                            <span>Under Construction</span>
+                        </div>
+                    </div>
+                    <div class="video-controls">
+                        <button class="video-play-pause" onclick="toggleVideo(this)">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="featured-project-info">
+                <h3>Luxury Residential Villa - Guwahati</h3>
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Guwahati, Assam</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-ruler-combined"></i>
+                        <span>3500 Sq.Ft</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Started: Jan 2025</span>
+                    </div>
+                </div>
+                <div class="project-progress">
+                    <div class="progress-header">
+                        <span>Construction Progress</span>
+                        <strong>65%</strong>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 65%"></div>
+                    </div>
+                </div>
+                <div class="project-description">
+                    <p>Modern 3 BHK villa with contemporary design, premium finishes, and earthquake-resistant structure. Features include modular kitchen, designer bathrooms, and spacious living areas.</p>
+                </div>
+                <button onclick="openEstimateModal()" class="btn btn-outline">
+                    <i class="fas fa-phone"></i> Get Similar Project Quote
+                </button>
+            </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="project-showcase-card">
+            <div class="project-video-wrapper">
+                <div class="project-video-container">
+                    <video 
+                        class="project-video" 
+                        autoplay 
+                        muted 
+                        loop 
+                        playsinline
+                        poster="image/project2-poster.jpg">
+                        <source src="project2.mp4" type="video/mp4">
+                    </video>
+                    <div class="video-overlay">
+                        <div class="project-status-badge">
+                            <i class="fas fa-hard-hat"></i>
+                            <span>Under Construction</span>
+                        </div>
+                    </div>
+                    <div class="video-controls">
+                        <button class="video-play-pause" onclick="toggleVideo(this)">
+                            <i class="fas fa-pause"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="featured-project-info">
+                <h3>Commercial Complex - Jorhat</h3>
+                <div class="project-meta">
+                    <div class="meta-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Patharquarry VIP Road, Guwahati</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-ruler-combined"></i>
+                        <span>5000 Sq.Ft</span>
+                    </div>
+                    <div class="meta-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span>Started: Dec 2024</span>
+                    </div>
+                </div>
+                <div class="project-progress">
+                    <div class="progress-header">
+                        <span>Construction Progress</span>
+                        <strong>45%</strong>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 45%"></div>
+                    </div>
+                </div>
+                <div class="project-description">
+                    <p>Multi-purpose commercial building with retail spaces on ground floor and office units on upper floors. Modern facade with energy-efficient design and ample parking facilities.</p>
+                </div>
+                <button onclick="openEstimateModal()" class="btn btn-outline">
+                    <i class="fas fa-phone"></i> Get Similar Project Quote
+                </button>
+            </div>
+        </div>
+
+        <!-- Project Highlights -->
+        <div class="project-highlights">
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <i class="fas fa-hard-hat"></i>
+                </div>
+                <h4>2 Active Sites</h4>
+                <p>Currently under construction</p>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <i class="fas fa-users"></i>
+                </div>
+                <h4>80+ Workers</h4>
+                <p>Expert team on sites daily</p>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <i class="fas fa-calendar-check"></i>
+                </div>
+                <h4>On Schedule</h4>
+                <p>Both projects on track</p>
+            </div>
+            
+            <div class="highlight-card">
+                <div class="highlight-icon">
+                    <i class="fas fa-certificate"></i>
+                </div>
+                <h4>Quality Assured</h4>
+                <p>ISI certified materials used</p>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="showcase-cta">
+            <p class="cta-text">Want to see your project come to life like this?</p>
+            <button onclick="openEstimateModal()" class="btn btn-primary btn-large">
+                <i class="fas fa-rocket"></i> Start Your Project Today
+            </button>
+        </div>
+    </div>
+</section>
+
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <span class="section-tag">About APEX</span>
+                    <h2>Building Dreams Since 2010</h2>
+                    <p>At APEX Building Construction, we understand that building your dream house is one of life's most important investments. That's why we provide comprehensive end-to-end support to make the entire process stress-free and efficient.</p>
+                    <p>Our A to Z service covers everything from initial design and planning to final handover. We also offer loan assistance to help you secure the financing you need. Whether you're a busy professional with no time to manage construction or someone looking for a reliable partner, APEX is here for you.</p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Licensed & Insured Contractors</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Quality Materials & Workmanship</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>On-Time Project Delivery</span>
+                        </div>
+                        <div class="about-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Transparent Pricing</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image">
+                    <img src="image/photo1.png" alt="Construction Team">
+                    <div class="experience-badge">
+                        <h3>15+</h3>
+                        <p>Years of Excellence</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="blog">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Latest Insights</span>
+                <h2>Construction Tips & Updates</h2>
+            </div>
+            <div class="blog-grid" id="blogGrid">
+                <!-- Blog posts loaded from Firebase -->
+                <div class="loading">Loading blog posts...</div>
+            </div>
+            <div class="view-all">
+                <a href="blog.html" class="btn btn-primary">View All Posts</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact/Query Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Get In Touch</span>
+                <h2>Request Your Free Estimate</h2>
+                <p class="section-subtitle">Share your project details and we'll get back to you within 24 hours</p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-phone"></i>
+                        </div>
+                        <div>
+                            <h4>Call Us</h4>
+                            <p>+91 9957852523</p>
+                            <p>+91 9706050639</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <div>
+                            <h4>Email Us</h4>
+                            <p>info.apexbuildandconstruct@gmail.com</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-map-marker-alt"></i>
+                        </div>
+                        <div>
+                            <h4>Visit Us</h4>
+                            <p>House No 16,Nilakantha Apartment<br>Ajanta Path,Beltola <br>Guwahati ,Assam, India</p>
+                        </div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h4>Working Hours</h4>
+                            <p>Mon - Sat: 9:00 AM - 6:00 PM</p>
+                        </div>
+                    </div>
+                </div>
+                <form id="queryForm" class="contact-form">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" id="qName" placeholder="Your Name *" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" id="qPhone" placeholder="Contact Number *" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" id="qLocation" placeholder="Your Location *" required>
+                    </div>
+                    <div class="form-group">
+                        <select id="qService" required>
+                            <option value="">Select Service Type *</option>
+                            <option value="residential">Residential Construction</option>
+                            <option value="commercial">Commercial Building</option>
+                            <option value="interior">Interior Design</option>
+                            <option value="renovation">Renovation & Remodeling</option>
+                            <option value="loan">Loan Assistance</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <textarea id="qDescription" rows="5" placeholder="Describe your project requirements *" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-full">
+                        <span>Send Query</span>
+                        <i class="fas fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+       <!-- Free Estimate Modal -->
+    <!-- Estimate Modal -->
+<div id="estimateModal" class="modal estimate-modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeEstimateModal()">&times;</span>
+        
+        <div class="estimate-header">
+            <i class="fas fa-calculator"></i>
+            <h2>Get Free Estimate</h2>
+            <p>Share your details and we'll connect with you!</p>
+        </div>
+
+        <div class="estimate-form">
+            <form id="estimateForm" onsubmit="sendToWhatsApp(event)">
+                <div class="form-group">
+                    <label><i class="fas fa-user"></i> Full Name *</label>
+                    <input type="text" id="fullName" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-phone"></i> Phone Number *</label>
+                    <input type="tel" id="phone" placeholder="Your contact number" pattern="[0-9]{10}" maxlength="10" required>
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-map-marker-alt"></i> Location</label>
+                    <input type="text" id="location" placeholder="City/Area (Optional)">
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-ruler-combined"></i> Plot Size (Sq.Ft)</label>
+                    <input type="number" id="plotSize" placeholder="e.g., 1200 (Optional)">
+                </div>
+
+                <div class="form-group">
+                    <label><i class="fas fa-home"></i> Service Type *</label>
+                    <select id="serviceType" required>
+                        <option value="">Select Service</option>
+                        <option value="Complete House Construction">Complete House Construction</option>
+                        <option value="Renovation">Renovation</option>
+                        <option value="Interior Design">Interior Design</option>
+                        <option value="Commercial Construction">Commercial Construction</option>
+                        <option value="Consultation">Consultation Only</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-full">
+                    <i class="fab fa-whatsapp"></i> SEND TO WHATSAPP
+                </button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="APEX_TM.png" alt="APEX Logo" class="footer-logo">
+                    <p>Building dreams, creating futures. Your trusted construction partner for residential and commercial projects.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61585677809570" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="services.html">Services</a></li>
+                        <li><a href="#ongoing-projects">Ongoing Projects</a></li>
+                        <li><a href="#completed-projects">Completed Projects</a></li>
+                        <li><a href="about.html">About Us</a></li>
+                        <li><a href="blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Our Services</h4>
+                    <ul>
+                        <li><a href="#services">Residential Construction</a></li>
+                        <li><a href="#services">Commercial Buildings</a></li>
+                        <li><a href="#services">Interior Design</a></li>
+                        <li><a href="#services">Renovation & Remodeling</a></li>
+                        <li><a href="#services">Project Management</a></li>
+                        <li><a href="#services">Loan Assistance</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contact Info</h4>
+                    <ul class="footer-contact">
+                        <li><i class="fas fa-map-marker-alt"></i> Guwahati, Assam, India</li>
+                        <li><i class="fas fa-phone"></i> +91 9957852523</li>
+                        <li><i class="fas fa-envelope"></i> info.apexbuildandconstruct@gmail.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 APEX Building Construction. All rights reserved.</p>
+                <p>Designed & Developed with <i class="fas fa-heart"></i> by <a href="https://junakdigital.com" target="_blank">Junak Digital</a></p>
+            </div>
+        </div>
+    </footer>
+    <!--Floating Button-->
+    <!-- Animated Floating Designer Button -->
+<div class="floating-designer-btn" onclick="openEstimateModal()">
+    <div class="designer-avatar">
+        <div class="waving-emoji">👷</div>
+        <span class="active-dot"></span>
+    </div>
+    <div class="designer-message">
+        <div class="message-line">
+            <span class="typing-text">Hi! Our Engineers</span>
+        </div>
+        <div class="message-line">
+            <span class="typing-text-delay">are waiting to build</span>
+        </div>
+        <div class="message-line">
+            <strong class="typing-text-delay2">your dream home!</strong>
+        </div>
+         <div class="message-line">
+            <span class="typing-text-delay">Just Click here to start Building</span>
+        </div>
+    </div>
+    <div class="click-pulse"></div>
+</div>
+
+    <!-- CountUp.js Library -->
+
+
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
