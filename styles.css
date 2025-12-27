@@ -2574,3 +2574,30 @@ footer {
         font-size: 1.2rem;
     }
 }
+
+/*make above estimate */
+/* QUICK FIX - Add to your styles.css */
+
+.modal {
+    z-index: 999999 !important;
+}
+
+.modal.active {
+    z-index: 999999 !important;
+}
+
+.modal-content {
+    z-index: 1000000 !important;
+}
+
+.floating-designer-btn {
+    z-index: 9999 !important;
+}
+
+/* Hide floating button when any modal is active */
+.modal.active ~ .floating-designer-btn,
+body:has(.modal.active) .floating-designer-btn {
+    opacity: 0 !important;
+    pointer-events: none !important;
+    visibility: hidden !important;
+}
