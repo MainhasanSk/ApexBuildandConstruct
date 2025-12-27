@@ -760,3 +760,136 @@ window.openQuoteModal = function(serviceName) {
         document.body.style.overflow = 'hidden';
     }
 };
+//Use Smooth Scrolling 
+// ===== ENHANCED MODAL FUNCTIONS WITH BODY SCROLL LOCK =====
+
+// Open Estimate Modal
+window.openEstimateModal = function() {
+    const estimateModal = document.getElementById('estimateModal');
+    const floatingBtn = document.querySelector('.floating-designer-btn');
+    
+    if (estimateModal) {
+        estimateModal.classList.add('active');
+        estimateModal.style.display = 'flex';
+        document.body.classList.add('modal-open'); // Add class
+        document.body.style.overflow = 'hidden';
+        
+        // Hide floating button
+        if (floatingBtn) {
+            floatingBtn.style.opacity = '0';
+            floatingBtn.style.pointerEvents = 'none';
+        }
+        
+        // Scroll modal to top
+        setTimeout(() => {
+            estimateModal.scrollTop = 0;
+        }, 100);
+    }
+};
+
+// Close Estimate Modal
+window.closeEstimateModal = function() {
+    const estimateModal = document.getElementById('estimateModal');
+    const floatingBtn = document.querySelector('.floating-designer-btn');
+    
+    if (estimateModal) {
+        estimateModal.classList.remove('active');
+        setTimeout(() => {
+            estimateModal.style.display = 'none';
+        }, 300);
+        document.body.classList.remove('modal-open'); // Remove class
+        document.body.style.overflow = 'auto';
+        
+        // Show floating button again
+        if (floatingBtn) {
+            setTimeout(() => {
+                floatingBtn.style.opacity = '1';
+                floatingBtn.style.pointerEvents = 'auto';
+            }, 300);
+        }
+    }
+};
+
+// Open Quote Modal
+window.openQuoteModal = function(serviceName) {
+    const quoteModal = document.getElementById('quoteModal');
+    const estimateModal = document.getElementById('estimateModal');
+    const floatingBtn = document.querySelector('.floating-designer-btn');
+    
+    // Hide floating button
+    if (floatingBtn) {
+        floatingBtn.style.opacity = '0';
+        floatingBtn.style.pointerEvents = 'none';
+    }
+    
+    if (quoteModal) {
+        quoteModal.classList.add('active');
+        quoteModal.style.display = 'flex';
+        const quoteServiceField = document.getElementById('quoteService');
+        if (quoteServiceField) {
+            quoteServiceField.value = serviceName;
+        }
+        document.body.classList.add('modal-open');
+        document.body.style.overflow = 'hidden';
+        
+        // Scroll modal to top
+        setTimeout(() => {
+            quoteModal.scrollTop = 0;
+        }, 100);
+    } else if (estimateModal) {
+        openEstimateModal();
+        const serviceTypeField = document.getElementById('serviceType');
+        if (serviceTypeField) {
+            const serviceOptions = {
+                'Complete House Construction': 'Complete House Construction',
+                'Commercial Construction': 'Commercial Construction',
+                'Interior Design & Finishing': 'Interior Design',
+                'Renovation & Remodeling': 'Renovation',
+                'Architectural Design & AutoCAD Planning': 'Consultation',
+                'Home Loan Assistance': 'Consultation'
+            };
+            setTimeout(() => {
+                serviceTypeField.value = serviceOptions[serviceName] || '';
+            }, 100);
+        }
+    }
+};
+
+// Close Quote Modal
+window.closeQuoteModal = function() {
+    const quoteModal = document.getElementById('quoteModal');
+    const floatingBtn = document.querySelector('.floating-designer-btn');
+    
+    if (quoteModal) {
+        quoteModal.classList.remove('active');
+        setTimeout(() => {
+            quoteModal.style.display = 'none';
+        }, 300);
+        document.body.classList.remove('modal-open');
+        document.body.style.overflow = 'auto';
+        
+        // Show floating button again
+        if (floatingBtn) {
+            setTimeout(() => {
+                floatingBtn.style.opacity = '1';
+                floatingBtn.style.pointerEvents = 'auto';
+            }, 300);
+        }
+    }
+};
+
+// Auto-scroll to submit button after filling last required field
+document.addEventListener('DOMContentLoaded', function() {
+    const serviceTypeField = document.getElementById('serviceType');
+    
+    if (serviceTypeField) {
+        serviceTypeField.addEventListener('change', function() {
+            setTimeout(() => {
+                const submitBtn = document.querySelector('.btn-full');
+                if (submitBtn && window.innerWidth <= 600) {
+                    submitBtn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }
+            }, 300);
+        });
+    }
+});

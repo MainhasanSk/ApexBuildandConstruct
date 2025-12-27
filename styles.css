@@ -2613,3 +2613,526 @@ body:has(.modal.active) .floating-designer-btn {
 .floating-designer-btn.hidden {
     display: none !important;
 }
+/*Use Smooth Scrooling */
+/* ==================== MOBILE MODAL FIX - SCROLLABLE & COMPACT ==================== */
+/* ==================== ESTIMATE & QUOTE MODAL - DESKTOP & MOBILE PERFECT ==================== */
+
+/* Modal Container */
+.modal.estimate-modal,
+.modal.quote-modal {
+    display: none;
+    position: fixed;
+    z-index: 999999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(8px);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 40px 20px;
+}
+
+.modal.active {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+}
+
+/* Modal Content - Desktop Default */
+.modal-content {
+    background: var(--white);
+    border-radius: 25px;
+    max-width: 600px;
+    width: 100%;
+    position: relative;
+    box-shadow: 0 30px 80px rgba(0, 0, 0, 0.4);
+    animation: modalSlideUp 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+    transform-origin: center;
+    margin: auto;
+}
+
+@keyframes modalSlideUp {
+    from {
+        transform: translateY(100px) scale(0.9);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Close Button - Desktop */
+.close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--secondary-color);
+    cursor: pointer;
+    z-index: 10;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid transparent;
+    line-height: 1;
+}
+
+.close:hover {
+    background: #ff4757;
+    color: var(--white);
+    transform: rotate(90deg) scale(1.1);
+    border-color: var(--white);
+}
+
+/* Modal Header - Desktop */
+.estimate-header,
+.quote-header {
+    background: linear-gradient(135deg, #F59E20 0%, #e88c0d 50%, #d17a00 100%);
+    color: black;
+    padding: 50px 40px 40px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 25px 25px 0 0;
+}
+
+.estimate-header::before,
+.quote-header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    animation: headerPulse 4s ease-in-out infinite;
+}
+
+@keyframes headerPulse {
+    0%, 100% {
+        transform: translate(0, 0) scale(1);
+    }
+    50% {
+        transform: translate(-10px, -10px) scale(1.05);
+    }
+}
+
+.estimate-header i,
+.quote-header i {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    filter: drop-shadow(0 4px 15px rgba(0, 0, 0, 0.2));
+    position: relative;
+    z-index: 2;
+}
+
+.estimate-header h2,
+.quote-header h2 {
+    margin-bottom: 12px;
+    color: black;
+    font-size: 2.2rem;
+    font-weight: 800;
+    position: relative;
+    z-index: 2;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.estimate-header p,
+.quote-header p {
+    color: black;
+    font-size: 1.05rem;
+    position: relative;
+    z-index: 2;
+    font-weight: 500;
+}
+
+/* Modal Form - Desktop */
+.estimate-form,
+.quote-form {
+    padding: 45px 40px;
+    background: var(--white);
+    border-radius: 0 0 25px 25px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+    position: relative;
+}
+
+.form-group:last-of-type {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    font-weight: 700;
+    color: var(--secondary-color);
+    font-size: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 0.85rem;
+}
+
+.form-group label i {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    width: 20px;
+    text-align: center;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 16px 20px;
+    border: 2px solid #e5e7eb;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-family: inherit;
+    transition: all 0.3s ease;
+    background: var(--white);
+    color: var(--secondary-color);
+    font-weight: 500;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 5px rgba(245, 158, 32, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-group input::placeholder {
+    color: #9ca3af;
+    font-weight: 400;
+}
+
+.form-group select {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%23F59E20' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 20px;
+    padding-right: 50px;
+}
+
+/* Submit Button */
+.btn-full {
+    width: 100%;
+    margin-top: 20px;
+    padding: 18px 30px;
+    background: linear-gradient(135deg, #F59E20 0%, #e88c0d 100%);
+    color: var(--white);
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 8px 25px rgba(245, 158, 32, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+}
+
+.btn-full:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px rgba(245, 158, 32, 0.5);
+    background: linear-gradient(135deg, #e88c0d 0%, #d17a00 100%);
+}
+
+.btn-full i {
+    font-size: 1.3rem;
+}
+
+/* ==================== TABLET RESPONSIVE (768px - 1024px) ==================== */
+@media (max-width: 1024px) and (min-width: 769px) {
+    .modal.estimate-modal,
+    .modal.quote-modal {
+        padding: 30px 20px;
+    }
+    
+    .modal-content {
+        max-width: 650px;
+    }
+}
+
+/* ==================== TABLET (768px and below) ==================== */
+@media (max-width: 768px) {
+    .modal.estimate-modal,
+    .modal.quote-modal {
+        padding: 20px 15px;
+        align-items: flex-start;
+        padding-top: 30px;
+    }
+    
+    .modal-content {
+        max-width: 95%;
+        margin-top: 0;
+    }
+    
+    .estimate-header,
+    .quote-header {
+        padding: 40px 30px 35px;
+        border-radius: 20px 20px 0 0;
+    }
+    
+    .estimate-header h2,
+    .quote-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .estimate-header i,
+    .quote-header i {
+        font-size: 3rem;
+    }
+    
+    .estimate-form,
+    .quote-form {
+        padding: 35px 30px;
+    }
+    
+    .close {
+        width: 42px;
+        height: 42px;
+        font-size: 1.7rem;
+    }
+}
+
+/* ==================== MOBILE (600px and below) ==================== */
+@media (max-width: 600px) {
+    .modal.estimate-modal,
+    .modal.quote-modal {
+        padding: 10px;
+        padding-top: 15px;
+        align-items: flex-start;
+    }
+    
+    .modal-content {
+        max-width: 98%;
+        width: 98%;
+        border-radius: 18px;
+        margin: 0 auto;
+        max-height: 95vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    /* Compact Header */
+    .estimate-header,
+    .quote-header {
+        padding: 30px 20px 25px;
+        border-radius: 18px 18px 0 0;
+        flex-shrink: 0;
+    }
+    
+    .estimate-header h2,
+    .quote-header h2 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .estimate-header p,
+    .quote-header p {
+        font-size: 0.95rem;
+    }
+    
+    .estimate-header i,
+    .quote-header i {
+        font-size: 2.5rem;
+        margin-bottom: 15px;
+    }
+    
+    /* Scrollable Form */
+    .estimate-form,
+    .quote-form {
+        padding: 25px 20px;
+        max-height: calc(95vh - 200px);
+        overflow-y: auto;
+        overflow-x: hidden;
+        flex: 1;
+    }
+    
+    .form-group {
+        margin-bottom: 20px;
+    }
+    
+    .form-group:last-of-type {
+        margin-bottom: 18px;
+    }
+    
+    .form-group label {
+        font-size: 0.85rem;
+        margin-bottom: 8px;
+        gap: 8px;
+    }
+    
+    .form-group input,
+    .form-group select {
+        padding: 13px 16px;
+        font-size: 0.95rem;
+        border-radius: 10px;
+    }
+    
+    .btn-full {
+        padding: 15px 25px;
+        font-size: 1rem;
+        margin-top: 18px;
+    }
+    
+    .btn-full i {
+        font-size: 1.2rem;
+    }
+    
+    .close {
+        width: 38px;
+        height: 38px;
+        font-size: 1.6rem;
+        top: 15px;
+        right: 15px;
+    }
+}
+
+/* ==================== SMALL MOBILE (480px and below) ==================== */
+@media (max-width: 480px) {
+    .modal.estimate-modal,
+    .modal.quote-modal {
+        padding: 8px;
+        padding-top: 10px;
+    }
+    
+    .modal-content {
+        max-width: 100%;
+        width: 100%;
+        border-radius: 16px;
+        max-height: 96vh;
+    }
+    
+    .estimate-header,
+    .quote-header {
+        padding: 25px 18px 22px;
+        border-radius: 16px 16px 0 0;
+    }
+    
+    .estimate-header h2,
+    .quote-header h2 {
+        font-size: 1.35rem;
+    }
+    
+    .estimate-header p,
+    .quote-header p {
+        font-size: 0.9rem;
+    }
+    
+    .estimate-header i,
+    .quote-header i {
+        font-size: 2.2rem;
+        margin-bottom: 12px;
+    }
+    
+    .estimate-form,
+    .quote-form {
+        padding: 20px 16px;
+        max-height: calc(96vh - 180px);
+    }
+    
+    .form-group {
+        margin-bottom: 16px;
+    }
+    
+    .form-group label {
+        font-size: 0.8rem;
+    }
+    
+    .form-group input,
+    .form-group select {
+        padding: 12px 14px;
+        font-size: 0.9rem;
+    }
+    
+    .btn-full {
+        padding: 14px 22px;
+        font-size: 0.95rem;
+    }
+    
+    .close {
+        width: 36px;
+        height: 36px;
+        font-size: 1.5rem;
+        top: 12px;
+        right: 12px;
+    }
+}
+
+/* ==================== CUSTOM SCROLLBAR ==================== */
+.estimate-form::-webkit-scrollbar,
+.quote-form::-webkit-scrollbar {
+    width: 6px;
+}
+
+.estimate-form::-webkit-scrollbar-track,
+.quote-form::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px;
+}
+
+.estimate-form::-webkit-scrollbar-thumb,
+.quote-form::-webkit-scrollbar-thumb {
+    background: var(--primary-color);
+    border-radius: 10px;
+}
+
+.estimate-form::-webkit-scrollbar-thumb:hover,
+.quote-form::-webkit-scrollbar-thumb:hover {
+    background: var(--primary-dark);
+}
+
+/* Smooth scrolling */
+.estimate-form,
+.quote-form {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent body scroll when modal is open */
+body.modal-open {
+    overflow: hidden;
+}
+
+/* Desktop - Large screens specific adjustments */
+@media (min-width: 1200px) {
+    .modal-content {
+        max-width: 650px;
+    }
+    
+    .estimate-header,
+    .quote-header {
+        padding: 55px 45px 45px;
+    }
+    
+    .estimate-form,
+    .quote-form {
+        padding: 50px 45px;
+    }
+}
