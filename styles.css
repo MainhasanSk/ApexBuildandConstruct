@@ -2575,29 +2575,41 @@ footer {
     }
 }
 
-/*make above estimate */
-/* QUICK FIX - Add to your styles.css */
+/* Estimate From */
+/* ==================== MODAL Z-INDEX FIX ==================== */
 
-.modal {
-    z-index: 999999 !important;
+/* Estimate Modal - Highest Priority */
+.modal.estimate-modal,
+.modal.quote-modal {
+    z-index: 999999 !important; /* Highest z-index */
 }
 
-.modal.active {
+.modal.estimate-modal.active,
+.modal.quote-modal.active {
     z-index: 999999 !important;
 }
 
 .modal-content {
-    z-index: 1000000 !important;
+    z-index: 1000000 !important; /* Even higher than modal backdrop */
+    position: relative;
 }
 
+/* Floating Button - Lower Priority */
 .floating-designer-btn {
-    z-index: 9999 !important;
+    z-index: 9999 !important; /* Lower than modal */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
 }
 
-/* Hide floating button when any modal is active */
-.modal.active ~ .floating-designer-btn,
+/* Hide floating button when modal is open */
 body:has(.modal.active) .floating-designer-btn {
-    opacity: 0 !important;
-    pointer-events: none !important;
-    visibility: hidden !important;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+/* Alternative - Force hide with class */
+.floating-designer-btn.hidden {
+    display: none !important;
 }

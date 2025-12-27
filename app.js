@@ -657,3 +657,106 @@ style.textContent = `
 document.head.appendChild(style);
 
 console.log('🏗️ APEX Build and Construct - Website Loaded Successfully!');
+//Hide Floating when open estimate from 
+// ===== HIDE FLOATING BUTTON WHEN MODAL IS OPEN =====
+
+// Open Estimate Modal - Updated
+window.openEstimateModal = function() {
+    const estimateModal = document.getElementById('estimateModal');
+    const floatingBtn = document.querySelector('.floating-designer-btn');
+    
+    if (estimateModal) {
+        estimateModal.classList.add('active');
+        estimateModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        
+        // Hide floating button
+        if (floatingBtn) {
+            floatingBtn.style.opacity = '0';
+            floatingBtn.style.pointerEvents = 'none';
+        }
+    }
+};
+
+// Close Estimate Modal - Updated
+window.closeEstimateModal = function() {
+    const estimateModal = document.getElementById('estimateModal');
+    const floatingBtn = document.querySelector('.floating-designer-btn');
+    
+    if (estimateModal) {
+        estimateModal.classList.remove('active');
+        setTimeout(() => {
+            estimateModal.style.display = 'none';
+        }, 300);
+        document.body.style.overflow = 'auto';
+        
+        // Show floating button again
+        if (floatingBtn) {
+            setTimeout(() => {
+                floatingBtn.style.opacity = '1';
+                floatingBtn.style.pointerEvents = 'auto';
+            }, 300);
+        }
+    }
+};
+
+// Close Quote Modal - Updated
+window.closeQuoteModal = function() {
+    const quoteModal = document.getElementById('quoteModal');
+    const floatingBtn = document.querySelector('.floating-designer-btn');
+    
+    if (quoteModal) {
+        quoteModal.classList.remove('active');
+        setTimeout(() => {
+            quoteModal.style.display = 'none';
+        }, 300);
+        document.body.style.overflow = 'auto';
+        
+        // Show floating button again
+        if (floatingBtn) {
+            setTimeout(() => {
+                floatingBtn.style.opacity = '1';
+                floatingBtn.style.pointerEvents = 'auto';
+            }, 300);
+        }
+    }
+};
+
+// Open Quote Modal - Updated
+window.openQuoteModal = function(serviceName) {
+    const quoteModal = document.getElementById('quoteModal');
+    const estimateModal = document.getElementById('estimateModal');
+    const floatingBtn = document.querySelector('.floating-designer-btn');
+    
+    // Hide floating button
+    if (floatingBtn) {
+        floatingBtn.style.opacity = '0';
+        floatingBtn.style.pointerEvents = 'none';
+    }
+    
+    if (quoteModal) {
+        quoteModal.classList.add('active');
+        quoteModal.style.display = 'flex';
+        const quoteServiceField = document.getElementById('quoteService');
+        if (quoteServiceField) {
+            quoteServiceField.value = serviceName;
+        }
+        document.body.style.overflow = 'hidden';
+    } else if (estimateModal) {
+        estimateModal.classList.add('active');
+        estimateModal.style.display = 'flex';
+        const serviceTypeField = document.getElementById('serviceType');
+        if (serviceTypeField) {
+            const serviceOptions = {
+                'Complete House Construction': 'Complete House Construction',
+                'Commercial Construction': 'Commercial Construction',
+                'Interior Design & Finishing': 'Interior Design',
+                'Renovation & Remodeling': 'Renovation',
+                'Architectural Design & AutoCAD Planning': 'Consultation',
+                'Home Loan Assistance': 'Consultation'
+            };
+            serviceTypeField.value = serviceOptions[serviceName] || '';
+        }
+        document.body.style.overflow = 'hidden';
+    }
+};
