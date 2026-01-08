@@ -893,3 +893,124 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 });
+
+//Contact Button 
+// ===== CONTACT MODAL FUNCTIONS =====
+// ===== FIXED CONTACT MODAL FUNCTIONS =====
+
+// Open Contact Modal
+window.openContactModal = function(e) {
+    if (e) e.preventDefault();
+    
+    const contactModal = document.getElementById('contactModal');
+    const floatingBtn = document.querySelector('.floating-designer-btn');
+    
+    if (contactModal) {
+        contactModal.classList.add('active');
+        contactModal.style.display = 'flex';
+        document.body.classList.add('modal-open');
+        document.body.style.overflow = 'hidden';
+        
+        // Hide floating button
+        if (floatingBtn) {
+            floatingBtn.style.opacity = '0';
+            floatingBtn.style.pointerEvents = 'none';
+        }
+        
+        // Scroll to top of modal
+        setTimeout(() => {
+            contactModal.scrollTop = 0;
+        }, 50);
+    }
+};
+
+// Close Contact Modal - Fixed
+window.closeContactModal = function(e) {
+    if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    
+    const contactModal = document.getElementById('contactModal');
+    const floatingBtn = document.querySelector('.floating-designer-btn');
+    
+    if (contactModal) {
+        contactModal.classList.remove('active');
+        document.body.classList.remove('modal-open');
+        document.body.style.overflow = 'auto';
+        
+        setTimeout(() => {
+            contactModal.style.display = 'none';
+        }, 300);
+        
+        // Show floating button again
+        if (floatingBtn) {
+            setTimeout(() => {
+                floatingBtn.style.opacity = '1';
+                floatingBtn.style.pointerEvents = 'auto';
+            }, 400);
+        }
+    }
+};
+
+// Send Query - Fixed
+window.sendQuery = function(e) {
+    if (e) {
+        e.preventDefault();
+        e.stopPropagation();
+    }
+    
+    closeContactModal();
+    
+    // Wait for modal to close, then scroll to contact form
+    setTimeout(() => {
+        const contactSection = document.getElementById('contact');
+        if (contactSection) {
+            const offsetTop = contactSection.offsetTop - 80;
+            window.scrollTo({
+                top: offsetTop,
+                behavior: 'smooth'
+            });
+            
+            // Focus on the name field after scrolling
+            setTimeout(() => {
+                const nameField = document.getElementById('qName');
+                if (nameField) {
+                    nameField.focus();
+                }
+            }, 800);
+        }
+    }, 350);
+};
+
+// Close modal when clicking on backdrop (outside modal content)
+window.addEventListener('DOMContentLoaded', function() {
+    const contactModal = document.getElementById('contactModal');
+    
+    if (contactModal) {
+        contactModal.addEventListener('click', function(e) {
+            // Only close if clicking directly on the modal backdrop (not on modal content)
+            if (e.target === contactModal) {
+                closeContactModal();
+            }
+        });
+        
+        // Prevent clicks inside modal content from closing modal
+        const modalContent = contactModal.querySelector('.contact-modal-content');
+        if (modalContent) {
+            modalContent.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
+    }
+});
+
+// Keyboard support - Close on ESC key
+document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' || e.keyCode === 27) {
+        const contactModal = document.getElementById('contactModal');
+        if (contactModal && contactModal.classList.contains('active')) {
+            closeContactModal();
+        }
+    }
+});

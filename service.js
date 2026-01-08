@@ -1,4 +1,43 @@
 // ===== SERVICES PAGE SPECIFIC FUNCTIONS =====
+// ===== FIX HAMBURGER MENU FOR SERVICES PAGE =====
+
+document.addEventListener('DOMContentLoaded', function() {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (hamburger && navLinks) {
+        // Remove any existing event listeners by cloning
+        const newHamburger = hamburger.cloneNode(true);
+        hamburger.parentNode.replaceChild(newHamburger, hamburger);
+        
+        // Add fresh event listener
+        newHamburger.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
+            
+            navLinks.classList.toggle('active');
+            newHamburger.classList.toggle('active');
+            
+            console.log('Hamburger clicked - Nav active:', navLinks.classList.contains('active'));
+        });
+        
+        // Close menu when clicking nav links
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', function() {
+                navLinks.classList.remove('active');
+                newHamburger.classList.remove('active');
+            });
+        });
+        
+        // Close menu when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!navLinks.contains(e.target) && !newHamburger.contains(e.target)) {
+                navLinks.classList.remove('active');
+                newHamburger.classList.remove('active');
+            }
+        });
+    }
+});
 
 // Open Quote Modal (Make sure this is global)
 window.openQuoteModal = function(serviceName) {
